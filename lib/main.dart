@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:signup_signin/views/authentication/signin.dart';
 import 'package:signup_signin/views/authentication/signup.dart';
@@ -11,6 +12,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await FlutterDownloader.initialize(debug: true);
 
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -36,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       title: 'SCIENCE FACTS GURU',
       initialRoute: '/',
       routes: {
-        '/' :  (context)=> const SignInView(),
+        '/' :  (context)=> const HomeView(),
       },
     );
   }

@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.signup_signin">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_WRITE_AMIGOSETTINGS_ROSTER" />
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="signup_signin"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +40,14 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <provider
+           android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"
+           android:authorities="${applicationId}.flutter_downloader.provider"
+           android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+               android:name="android.support.FILE_PROVIDER_PATHS"
+               android:resource="@xml/provider_paths"/>
+       </provider>
     </application>
 </manifest>
